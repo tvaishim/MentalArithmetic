@@ -17,13 +17,13 @@ __pycache__/
 # pyinstaller
 build/
 dist/
-.spec
+*.spec
 
 # production
 prod/
 make_prod.cmd
 
 # project
-.log
+*.log
 notes.txt
 
