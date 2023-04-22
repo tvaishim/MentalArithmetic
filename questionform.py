@@ -13,29 +13,30 @@ class QuestionForm(tkinter.Tk):
         self.counter_for_award = 0
 
         self.title("Mental arithmetic")
-        width = 794
-        height = 540
+        width = self.app.config.questform_width
+        height = self.app.config.questform_height
         self.geometry(f"={width}x{height}+{(self.winfo_screenwidth() - width) // 2}+{(self.winfo_screenheight() - height) // 2 - 100}")
         # self.geometry('794x540+300+200')
-        self.resizable(False, False)
+        self.resizable(True, True)
+        self.minsize(600, 300)
 
-        self.label0 = tkinter.Label(self, borderwidth=1, relief='sunken', font='arial 14')
-        self.label0.place(x=5, y=5, width=784, height=30)
+        self.label0 = tkinter.Label(self, font='arial 14', borderwidth=1, relief="sunken")
+        self.label0.place(x=0, y=0, relwidth=1, height=40)
 
-        self.label5 = tkinter.Label(self, text='Время', borderwidth=1, relief='sunken', foreground='Black')
-        self.label5.place(x=5, y=40, width=192, height=30)
+        self.label5 = tkinter.Label(self, foreground='Black', font='arial 12', borderwidth=1, relief="sunken")
+        self.label5.place(relx=0, y=40, relwidth=0.25, height=30, bordermode=tkinter.OUTSIDE)
 
-        self.label1 = tkinter.Label(self, text='Время', borderwidth=1, relief='sunken', foreground='Blue')
-        self.label1.place(x=202, y=40, width=192, height=30)
+        self.label1 = tkinter.Label(self, foreground='Blue', font='arial 12', borderwidth=1, relief="sunken")
+        self.label1.place(relx=0.25, y=40, relwidth=0.25, height=30)
 
-        self.label2 = tkinter.Label(self, text='Слов', borderwidth=1, relief='sunken', foreground='Green')
-        self.label2.place(x=399, y=40, width=192, height=30)
+        self.label2 = tkinter.Label(self, foreground='Green', font='arial 12', borderwidth=1, relief="sunken")
+        self.label2.place(relx=0.5, y=40, relwidth=0.25, height=30)
 
-        self.label3 = tkinter.Label(self, text='Результат', borderwidth=1, relief='sunken', foreground='Red')
-        self.label3.place(x=596, y=40, width=192, height=30)
+        self.label3 = tkinter.Label(self, foreground='Red', font='arial 12', borderwidth=1, relief="sunken")
+        self.label3.place(relx=0.75, y=40, relwidth=0.25, height=30)
 
-        self.label4 = tkinter.Label(self, text='Вопрос', borderwidth=1, font='arial 60')
-        self.label4.place(x=5, y=190, width=784, height=120)
+        self.label4 = tkinter.Label(self, font='arial 60')
+        self.label4.place(relx=0, rely=0.37, relwidth=1, height=120)
 
         self.protocol('WM_DELETE_WINDOW', self.window_deleted)
         self.bind('<Key>', self.event_press_key)
@@ -113,5 +114,11 @@ class QuestionForm(tkinter.Tk):
         self.close_window()
 
     def close_window(self):
+        if self.winfo_width() != self.app.config.questform_width:
+            self.app.config.questform_width = self.winfo_width()
+            self.app.config.questform_resized = True
+        if self.winfo_height() != self.app.config.questform_height:
+            self.app.config.questform_height = self.winfo_height()
+            self.app.config.questform_resized = True
         self.quit()
         # self.destroy()

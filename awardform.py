@@ -24,8 +24,8 @@ class AwardForm(tkinter.Tk):
         self.app = parent_app
 
         self.title("Reward image")
-        form_width = 800
-        form_height = 600
+        form_width = min(self.winfo_screenwidth(), 800)
+        form_height = min(self.winfo_screenheight(), 600)
         self.geometry(f"={form_width}x{form_height}+{(self.winfo_screenwidth() - form_width) // 2}+{(self.winfo_screenheight() - form_height) // 2 - 100}")
         self.resizable(False, False)
         self.overrideredirect(True)

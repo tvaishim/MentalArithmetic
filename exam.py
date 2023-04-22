@@ -98,9 +98,8 @@ class Exam:
             percent = (self.counter_right-self.counter_wrong) * 100 // self.counter_questions
         else:
             percent = self.counter_right * 100 // self.counter_questions
+        percent = max(percent, 0)
         grade = round(percent / 20)
-        if grade < 1:
-            grade = 1
         return {
             "total": self.counter_questions,
             "count": self.counter_answers,

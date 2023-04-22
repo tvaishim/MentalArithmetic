@@ -26,4 +26,5 @@ make_prod.cmd
 # project
 *.log
 notes.txt
+sett.ini
 

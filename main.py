@@ -26,6 +26,8 @@ class App:
 
         self.log.info(f"-- Тест завершен\n{self.exam}\n")
 
+        self.config.save_setting()
+
     def show_award(self):
         award_form = awardform.AwardForm(self)
         award_form.destroy()
