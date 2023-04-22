@@ -19,7 +19,7 @@
 
 ## Установка
 
-* Скачать и распаковать архив [marithmetic.zip](https://github.com/tvaishim/MentalArithmetic/blob/main/marithmetic.zip).
+* Скачать и распаковать архив [marithmetic.zip](https://github.com/tvaishim/MentalArithmetic/raw/main/marithmetic.zip).
 * Настроить программу. Настройки хранятся в файле *config.ini*
 * Если нужно, наполнитьь папку *images* картинками для показа поощрений
 * Запустить *marithmetic.exe*
